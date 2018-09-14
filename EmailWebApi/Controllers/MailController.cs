@@ -15,10 +15,10 @@ using YourProject.Logging;
 using Attachment = System.Net.Mail.Attachment;
 using EmailAttachment = YourProject.Domain.Entities.EmailAttachment;
 
-namespace EmailWebApi.Control'ss
+namespace EmailWebApi.Controller
 {
 
-    public class MailControl's : ApiControl's
+    public class MailController : ApiController
     {
         private readonly IEmail _emailService;
 
@@ -29,13 +29,13 @@ namespace EmailWebApi.Control'ss
 
         public static int MailSmtpPort = Convert.ToInt32(ConfigurationManager.AppSettings["MailSmtpPort"]);
         public static bool MailEnableSsl = true;
-        private static string baseAddress = "EmailWebApi.Control'ss.MailControl's";
+        private static string baseAddress = "EmailWebApi.Controller.MailController";
 
-        public MailControl's(IEmail emailService)
+        public MailController(IEmail emailService)
         {
             #region Write Log
             var dtEntry = DateTime.Now;
-            var address = baseAddress + ".MailControl's(IEmail emailService)";
+            var address = baseAddress + ".MailController(IEmail emailService)";
             var dic = LogBusiness.GetDictionary();
             dic.Add(LogFieldName.FullyQualifiedFunctionName, address);
             var dicParams = LogBusiness.GetDictionary();
